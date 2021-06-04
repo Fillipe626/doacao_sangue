@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418578976604",
+    "project_id": "doacaosangue-f755b",
+    "storage_bucket": "doacaosangue-f755b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418578976604:android:12ea838140f6bafe40bb99",
+        "android_client_info": {
+          "package_name": "fillipe.com.doacao_sangue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418578976604-9o4126nk7dpcjgvap52unvglhl5u2r5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkPgpSqUspiEe4wTyeb3THyVGgDJfXx8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418578976604-9o4126nk7dpcjgvap52unvglhl5u2r5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
