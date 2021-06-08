@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           title: 'Doação de Sangue',
           theme: ThemeData(
               primarySwatch: Colors.blue,
-              primaryColor: Color.fromARGB(255, 4, 125, 141)
+              primaryColor: Color.fromARGB(255, 4, 125, 200)
 
           ),
           debugShowCheckedModeBanner: false,

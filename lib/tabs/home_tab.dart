@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({Key key}) : super(key: key);
@@ -13,8 +14,8 @@ class HomeTab extends StatelessWidget {
       decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromARGB(255, 250, 110, 128),
-              Color.fromARGB(255, 193, 148, 151),
+              Color.fromARGB(255, 4, 125, 200),
+              Colors.white,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
@@ -34,31 +35,51 @@ class HomeTab extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0.0,
               flexibleSpace: FlexibleSpaceBar(
-                title: const Text("Inicio"),
+                title: const Text("Novidades"),
                 centerTitle: true,
               ),
             ),
-            /* FutureBuilder <QuerySnapshot>( //função que pega os dados do usuário do banco e constroi a carteirinha digital
-                future: Firestore.instance.collection("user").getDocuments(),
-                builder: (context,snapshot){
-                  if(!snapshot.hasData)
-                    return SliverToBoxAdapter( //como estamos detro de uma sliver precisa ser adaptado para que o sistema exiba a barra de progresso enquanto pesquisa os dados
-                      child: Container(
-                        height: 200,
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                        ),
+            FutureBuilder<QuerySnapshot>(
+              future: Firestore.instance
+                  .collection("home").orderBy("pos").getDocuments(),
+              builder: (context, snapshot){
+                if(!snapshot.hasData)
+                  return SliverToBoxAdapter(
+                    child: Container(
+                      height: 200.0,
+                      alignment: Alignment.center,
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                       ),
-                    );
-                  else
-                    return SliverStaggeredGrid.count();//retornar aqui os dados do usuário
-                },
-            )*/
+                    ),
+                  );
+                else
+                  return SliverStaggeredGrid.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 1.0,
+                    crossAxisSpacing: 1.0,
+                    staggeredTiles: snapshot.data.documents.map(
+                            (doc){
+                          return StaggeredTile.count(doc.data["x"], doc.data["y"]);
+                        }
+                    ).toList(),
+                    children: snapshot.data.documents.map(
+                            (doc){
+                          return FadeInImage.memoryNetwork(
+                            placeholder: kTransparentImage,
+                            image: doc.data["image"],
+                            fit: BoxFit.cover,
+                          );
+                        }
+                    ).toList(),
+                  );
+              },
+            )
           ],
         )
       ],
     );
   }
 }
+
 
