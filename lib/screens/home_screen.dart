@@ -1,7 +1,7 @@
+import 'package:doacao_sangue/screens/donation_screen.dart';
 import 'package:doacao_sangue/screens/id_screen.dart';
 import 'package:doacao_sangue/screens/information_screen.dart';
 import 'package:doacao_sangue/screens/notification_screen.dart';
-import 'package:doacao_sangue/tabs/donation_tab.dart';
 import 'package:doacao_sangue/tabs/home_tab.dart';
 import 'package:doacao_sangue/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
           ),
           drawer: CustomDrawer(_pageController),
-          body: DonationTab(),
+          body: DonationScreen(),
         ),
         Scaffold(
           appBar: AppBar(
