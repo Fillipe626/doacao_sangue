@@ -12,6 +12,8 @@ class DonationData{
     data = document.data["data"];
   }
 
+  DonationData();
+
   Map<String, dynamic>toMap(){
     return {
       "cid": cid,
