@@ -64,6 +64,7 @@ class _DonationScreenState extends State<DonationScreen> {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => LoginScreen()));
                         }
+                        _onSuccess();
                       }
                       ),
                 ),
@@ -82,17 +83,10 @@ class _DonationScreenState extends State<DonationScreen> {
       duration: Duration(seconds: 3),
     ));
     Future.delayed(Duration(seconds: 2)).then((_) {
-      //Depois do usuário criado, aguardamos dois segundos e damos um pop na tela para retornar
+      //Depois de registrada a doação aguardamos deois segundos e levamos até a tela de doações
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => HomeScreen()));
     });
   }
 
-  void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text("Falha ao registrar a doação!"),
-      backgroundColor: Colors.redAccent,
-      duration: Duration(seconds: 5),
-    ));
-  }
 }
