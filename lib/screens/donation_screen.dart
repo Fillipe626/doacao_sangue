@@ -23,6 +23,7 @@ class _DonationScreenState extends State<DonationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
         key: _scaffoldKey,
         body: ScopedModelDescendant<DonationModel>(
             builder: (context, child, model) {
@@ -57,6 +58,7 @@ class _DonationScreenState extends State<DonationScreen> {
                       onPressed: () {
                         if (UserModel.of(context).isLoggedIn()) {
                           DonationData donationData = DonationData();
+
                           donationData.data = _dateController.text;
 
                           DonationModel.of(context).addDonation(donationData);

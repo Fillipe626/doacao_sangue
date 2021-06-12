@@ -18,7 +18,7 @@ class DonationModel extends Model{
   void addDonation(DonationData donationData){
     donation.add(donationData);
 
-    Firestore.instance.collection("users").document(user.firebaseUser.uid).collection("donation").add(donationData.toMap()).then((doc){
+    Firestore.instance.collection("donation").add(donationData.toMap()).then((doc){
       donationData.cid = doc.documentID;
     });
     
