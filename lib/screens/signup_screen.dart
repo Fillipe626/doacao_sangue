@@ -119,10 +119,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           case 8:
                             _bloodController = "Não sei";
                             break;
+                          default:
+                            _bloodController = "Não sei";
+                            break;
 
                         }
                       });
                     },
+                  ),
+                  Text(
+                    "O exame de que identifica seu fator RH é feito gratuitamente ao doar sangue.",
+                    style:
+                    TextStyle(fontSize: 10.0, color: Colors.red),
                   ),
                   SizedBox(height: 16.0),
                   TextFormField(

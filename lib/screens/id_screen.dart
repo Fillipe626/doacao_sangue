@@ -100,11 +100,19 @@ class _IdScreenState extends State<IdScreen> {
                     style:
                     TextStyle(fontSize: 18.0),
                   ),
-
+                  SizedBox(height: 120.0),
+                  Text(
+                    "Para doar sangue é necessário apresentar documento original com foto!",
+                    style:
+                    TextStyle(fontSize: 14.0, color: Colors.redAccent),
+                  ),
                 ],
               );
-            })),
+            })
+
+        ),
       ],
     ));
+
   }
 }
