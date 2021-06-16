@@ -14,7 +14,7 @@ class _IdScreenState extends State<IdScreen> {
 
 
     return Card(
-        child: Stack(
+    child: Stack(
       children: <Widget>[
         Container(
             margin: EdgeInsets.only(bottom: 8.0),
@@ -112,7 +112,8 @@ class _IdScreenState extends State<IdScreen> {
 
         ),
       ],
-    ));
+    )
+    );
 
   }
 }

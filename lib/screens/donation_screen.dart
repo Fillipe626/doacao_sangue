@@ -2,7 +2,7 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:doacao_sangue/datas/donation_data.dart';
 import 'package:doacao_sangue/models/donation_model.dart';
 import 'package:doacao_sangue/models/user_model.dart';
-import 'package:doacao_sangue/screens/home_screen.dart';
+import 'package:doacao_sangue/screens/donation_list.dart';
 import 'package:doacao_sangue/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,54 +26,58 @@ class _DonationScreenState extends State<DonationScreen> {
 
         key: _scaffoldKey,
         body: ScopedModelDescendant<DonationModel>(
-            builder: (context, child, model) {
-          return Form(
-            key: _formKey,
-            child: ListView(
-              padding: EdgeInsets.all(16.0),
-              children: <Widget>[
-                TextFormField(
-                  keyboardType: TextInputType.phone,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                    DataInputFormatter(),
-                  ],
-                  controller: _dateController,
-                  decoration: InputDecoration(hintText: "Data da doação"),
-                  validator: (text) {
-                    if (text.isEmpty) return "Informe a data da sua doação!";
-                  },
-                ),
-                SizedBox(
-                  height: 44.0,
-                  child: RaisedButton(
-                      child: Text(
-                        "Registrar doação",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      textColor: Colors.white,
-                      color: Theme.of(context).primaryColor,
-                      onPressed: () {
-                        if (UserModel.of(context).isLoggedIn()) {
-                          DonationData donationData = DonationData();
+            builder: (context, child, model){
 
-                          donationData.data = _dateController.text;
-
-                          DonationModel.of(context).addDonation(donationData);
-                        } else {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => LoginScreen()));
-                        }
-                        _onSuccess();
-                      }
-                      ),
-                ),
+      return Form(
+        key: _formKey,
+        child: ListView(
+          padding: EdgeInsets.all(16.0),
+          children: <Widget>[
+            TextFormField(
+              keyboardType: TextInputType.phone,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                DataInputFormatter(),
               ],
+              controller: _dateController,
+              decoration: InputDecoration(hintText: "Data da doação"),
+              validator: (text) {
+                if (text.isEmpty) return "Informe a data da sua doação!";
+              },
             ),
-          );
-        }
+            SizedBox(
+              height: 44.0,
+              child: RaisedButton(
+                  child: Text(
+                    "Registrar doação",
+                    style: TextStyle(
+                      fontSize: 18.0,
+                    ),
+                  ),
+                  textColor: Colors.white,
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
+                  onPressed: () {
+                    if (UserModel.of(context).isLoggedIn()) {
+                      DonationData donationData = DonationData();
+
+                      donationData.data = _dateController.text;
+
+                      DonationModel.of(context).addDonation(donationData);
+                    } else {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => LoginScreen()));
+                    }
+                    _onSuccess();
+                  }
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
       )
     );
   }
@@ -87,7 +91,7 @@ class _DonationScreenState extends State<DonationScreen> {
     Future.delayed(Duration(seconds: 2)).then((_) {
       //Depois de registrada a doação aguardamos deois segundos e levamos até a tela de doações
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+          .push(MaterialPageRoute(builder: (context) => DonationList()));
     });
   }
 

@@ -83,8 +83,8 @@ class CustomDrawer extends StatelessWidget {
               Divider(),
               DrawerTile(Icons.home, "Inicio", pageController,0),
               DrawerTile(Icons.contacts, "Carteirinha Digital", pageController,1),
-              DrawerTile(Icons.playlist_add, "Doações", pageController,2),
-              DrawerTile(Icons.notifications_active, "Notificações", pageController,3),
+              DrawerTile(Icons.playlist_add, "Registrar doações", pageController,2),
+              DrawerTile(Icons.wb_incandescent, "Consultar doações", pageController,3),
               DrawerTile(Icons.info_outline, "Informações", pageController,4),
 
             ],

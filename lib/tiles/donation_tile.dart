@@ -16,7 +16,7 @@ class DonationTile extends StatelessWidget {
         backgroundColor: Colors.redAccent,
 
       ),
-      title: Text(snapshot.data["doacao"]),
+      title: Text(snapshot.data["data"]),
       trailing: Icon(Icons.keyboard_arrow_right),
       onTap: (){},
     );
