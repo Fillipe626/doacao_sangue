@@ -15,6 +15,8 @@ class UserData{
 
   String bloodType;
 
+  String gender;
+
   UserData userData;
 
   UserData();
@@ -26,6 +28,7 @@ class UserData{
     email = snapshot.data['email'];
     birthDate = snapshot.data['birthDate'];
     bloodType = snapshot.data['bloodType'];
+    gender = snapshot.data['gender'];
   }
 
 }

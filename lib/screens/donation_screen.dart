@@ -22,64 +22,68 @@ class _DonationScreenState extends State<DonationScreen> {
       GlobalKey<FormState>(); //Chave global para acesso do formulário
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
 
         key: _scaffoldKey,
         body: ScopedModelDescendant<DonationModel>(
-            builder: (context, child, model){
+            builder: (context, child, model) {
 
-      return Form(
-        key: _formKey,
-        child: ListView(
-          padding: EdgeInsets.all(16.0),
-          children: <Widget>[
-            TextFormField(
-              keyboardType: TextInputType.phone,
-              inputFormatters: [
-                FilteringTextInputFormatter.digitsOnly,
-                DataInputFormatter(),
-              ],
-              controller: _dateController,
-              decoration: InputDecoration(hintText: "Data da doação"),
-              validator: (text) {
-                if (text.isEmpty) return "Informe a data da sua doação!";
-              },
-            ),
-            SizedBox(
-              height: 44.0,
-              child: RaisedButton(
-                  child: Text(
-                    "Registrar doação",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                    ),
+          return Form(
+
+            key: _formKey,
+            child: ListView(
+
+              padding: EdgeInsets.only(top: 120.0, left: 20.0, right: 20.0),
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [ TextFormField(
+                    keyboardType: TextInputType.phone,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      DataInputFormatter(),
+                    ],
+                    controller: _dateController,
+                    decoration: InputDecoration(hintText: "Digite a data da doação"),
+                    validator: (text) {
+                      if (text.isEmpty) return "Informe a data da sua doação!";
+                    },
                   ),
-                  textColor: Colors.white,
-                  color: Theme
-                      .of(context)
-                      .primaryColor,
-                  onPressed: () {
-                    if (UserModel.of(context).isLoggedIn()) {
-                      DonationData donationData = DonationData();
+                    SizedBox(height: 70.0,),
+                    SizedBox(
+                      height: 44.0,
+                      child: RaisedButton(
+                          child: Text(
+                            "Registrar doação",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                            ),
+                          ),
+                          textColor: Colors.white,
+                          color: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            if (UserModel.of(context).isLoggedIn()) {
+                              DonationData donationData = DonationData();
 
-                      donationData.data = _dateController.text;
+                              donationData.data = _dateController.text;
 
-                      DonationModel.of(context).addDonation(donationData);
-                    } else {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => LoginScreen()));
-                    }
-                    _onSuccess();
-                  }
-              ),
+                              DonationModel.of(context).addDonation(donationData);
+                            } else {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
+                            }
+                            _onSuccess();
+                          }),
+                    ),
+
+                  ],
+                )
+
+              ],
             ),
-          ],
-        ),
-      );
-    }
-
-      )
-    );
+          );
+        }));
   }
 
   void _onSuccess() {
@@ -94,5 +98,4 @@ class _DonationScreenState extends State<DonationScreen> {
           .push(MaterialPageRoute(builder: (context) => DonationList()));
     });
   }
-
 }

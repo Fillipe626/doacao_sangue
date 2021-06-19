@@ -28,6 +28,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
     'Não sei'
   ];
 
+  String _genderController;
+
+  int _genderType;
+
+  var genderType = <String>[
+    'Masculino',
+    'Feminino',
+    'Outro',
+
+  ];
+
   String _bloodController;
   final _nameController = TextEditingController();
   final _cpfController = TextEditingController();
@@ -79,7 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     },
                   ),
                   SizedBox(height: 16.0),
-                  new DropdownButton<String>( // Ficou feio mas funciona
+                  new DropdownButton<String>(
                     hint: new Text('Escolha seu tipo sanguíneo'),
                     value: _bloodType == null ? null : bloodType[_bloodType],
                     items: bloodType.map((String value) {
@@ -131,6 +142,38 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     "O exame de que identifica seu fator RH é feito gratuitamente ao doar sangue.",
                     style:
                     TextStyle(fontSize: 10.0, color: Colors.red),
+                  ),
+
+                  SizedBox(height: 16.0),
+                  new DropdownButton<String>(
+                    hint: new Text('Escolha seu gênero'),
+                    value: _genderType == null ? null : genderType[_genderType],
+                    items: genderType.map((String value) {
+                      return new DropdownMenuItem<String>(
+                        value: value,
+                        child: new Text(value),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _genderType = genderType.indexOf(value);
+                        switch (_genderType){
+                          case 0:
+                            _bloodController = "Masculino";
+                            break;
+                          case 1:
+                            _bloodController = "Feminino";
+                            break;
+                          case 2:
+                            _bloodController = "Outro";
+                            break;
+                          default:
+                            _bloodController = "Não sei";
+                            break;
+
+                        }
+                      });
+                    },
                   ),
                   SizedBox(height: 16.0),
                   TextFormField(
