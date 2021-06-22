@@ -4,6 +4,7 @@ import 'package:doacao_sangue/models/donation_model.dart';
 import 'package:doacao_sangue/models/user_model.dart';
 import 'package:doacao_sangue/screens/donation_list.dart';
 import 'package:doacao_sangue/screens/login_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -66,6 +67,7 @@ class _DonationScreenState extends State<DonationScreen> {
                             if (UserModel.of(context).isLoggedIn()) {
                               DonationData donationData = DonationData();
 
+                              /*donationData.cid = model.userData["cpf"];*/
                               donationData.data = _dateController.text;
 
                               DonationModel.of(context).addDonation(donationData);

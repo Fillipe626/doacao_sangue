@@ -15,7 +15,6 @@ class _DonationListState extends State<DonationList> {
   Widget build(BuildContext context) {
     if (UserModel.of(context).isLoggedIn()) {
       return FutureBuilder<QuerySnapshot>(
-          future: Firestore.instance.collection("donation").getDocuments(),
           builder: (context, snapshot) {
             if (!snapshot.hasData)
               return Center(

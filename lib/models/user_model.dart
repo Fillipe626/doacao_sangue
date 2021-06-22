@@ -73,6 +73,7 @@ class UserModel extends Model{
     notifyListeners();
   }
 
+
   void recoverPass(String email) {
     _auth.sendPasswordResetEmail(email: email);
   }
@@ -94,11 +95,13 @@ class UserModel extends Model{
         DocumentSnapshot docUser =
         await Firestore.instance.collection("users").document(firebaseUser.uid).get();
         userData = docUser.data;
+
       }
       notifyListeners();
     }
 
   }
+
 
 
 }

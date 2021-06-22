@@ -163,15 +163,63 @@ class InformationScreen extends StatelessWidget {
                         'algumas perguntas que fazem parte da rotina, serão feitas. Suas respostas são extremamente importantes e confidenciais. \n'
                         '4° Passo: A doação propriamente dita. Um profissional de saúde irá realizar a assepsia em seu braço e usar uma agulha descartável. '
                         'Não há chance de contrair o vírus da AIDS ou nenhuma outra doença infecciosa doando sangue.\n'
-                        '5° Passo: Após a doação você deverá descansar uns 10 minutos. Esse tempo é super importante e com isso você poderá fazer um lanche leve, fornecido gratuitamente.',
+                        '5° Passo: Após a doação você deverá descansar uns 10 minutos. Esse tempo é super importante e com isso você poderá fazer um lanche leve, fornecido gratuitamente.\n\n',
                     style: TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  TextSpan(
+                      text:
+                      'Um dia de folga por ano:\n\n',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold)),
+                  TextSpan(
+                      text:
+                      'Se você é funcionário de uma empresa e trabalha com registro em carteira, a legislação prevê que um dia de folga por ano relacionado ao ato de doar sangue. Em outras palavras, basta levar um atestado à sua empresa que ela é obrigada a conceder esse benefício.\n'
+
+                      'Importante: ainda que você doe sangue mais de uma vez por ano, o benefício só pode ser recebido uma vez a cada 365 dias. Como se trata de uma legislação federal, a regra se aplica a todo o país. A concessão do benefício não é obrigatória para colaboradores contratados sob outros regimes que não o da CLT.\n\n',
+                      style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                  TextSpan(
+                      text:
+                      'Meia-entrada em cinemas, teatros e eventos culturais:\n\n',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold)),
+                  TextSpan(
+                      text:
+                      'Em 2019 a Comissão de Assuntos Sociais do Senado Federal aprovou em 2019 um projeto que concede meia-entrada em salas de cinema, cineclubes, teatros, espetáculos musicais e circenses e eventos educativos, esportivos, de lazer e entretenimento aos doadores de sangue que comprovarem um mínimo de três doações de sangue por ano.\n'
+                          'Em alguns estados, como no Paraná ou no Espírito Santo, leis similares já existem há mais tempo e podem ser mais amplas do que a recomendação federal. Portanto, informe-se no Hemocentro mais próximo sobre quais as regras que se aplicam na sua região para que você possa receber uma carteira de doador de sangue frequente para ter acesso a esses benefícios.\n\n',
+                      style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
+                  TextSpan(
+                      text:
+                      'Check-up completo gratuito\n\n',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold)),
+                  TextSpan(
+                      text:
+                      'Fazer um check-up completo de saúde pelo menos uma vez por ano é fundamental para pessoas de todas as idades. A boa notícia é que quando você faz uma doação de sangue recebe do local em questão uma análise gratuita da sua amostra. \n'
+                          'Esses testes são feitos para verificar se você está apto ou não a doar, mas os resultados podem ser utilizados na sua próxima consulta médica. Entre os exames realizados estão o teste de detecção de hepatite B, hepatite C, sífilis e HIV. Ou seja, doar sangue é também uma forma de se prevenir contra problemas de saúde.\n',
+                      style: TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold)),
                 ],
+
               ),
+
             ),
           ),
 
@@ -188,7 +236,7 @@ class InformationScreen extends StatelessWidget {
                   TextSpan(
                     text:
                         'Qualquer pessoa com idade entre 18 e 67 anos que pese mais de 50 quilos. Jovens de 16 ou 17 anos também estão aptos, desde que tenham o '
-                        'consentimento dos pais ou dos responsáveis. Clique aqui para conhecer os requisitos.\n\n',
+                        'consentimento dos pais ou dos responsáveis.\n\n',
                     style: TextStyle(
                       color: Colors.blueGrey,
                       fontSize: 20,
