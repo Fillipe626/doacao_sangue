@@ -1,8 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:doacao_sangue/models/user_model.dart';
 import 'package:doacao_sangue/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'dart:io';
 
 class IdScreen extends StatefulWidget {
   @override
@@ -48,6 +49,16 @@ class _IdScreenState extends State<IdScreen> {
                                   ),
                                 ),
                               ),
+                              onTap: (){
+                                {
+                                  ImagePicker.pickImage(source: ImageSource.camera).then((file){
+                                    if(file == null) return;
+                                    setState(() {
+
+                                    });
+                                  });
+                                };
+                              },
                             ),
                             Text(
                               "Nome:",
