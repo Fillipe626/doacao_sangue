@@ -64,18 +64,18 @@ class _DonationScreenState extends State<DonationScreen> {
                           textColor: Colors.white,
                           color: Theme.of(context).primaryColor,
                           onPressed: () {
-                            if (UserModel.of(context).isLoggedIn()) {
+                            if (UserModel.of(context).isLoggedIn() & _formKey.currentState.validate()) {
                               DonationData donationData = DonationData();
 
                               /*donationData.cid = model.userData["cpf"];*/
                               donationData.data = _dateController.text;
 
                               DonationModel.of(context).addDonation(donationData);
+                              _onSuccess();
                             } else {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => LoginScreen()));
+                              _onFail();
                             }
-                            _onSuccess();
+
                           }),
                     ),
 
@@ -99,5 +99,14 @@ class _DonationScreenState extends State<DonationScreen> {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => DonationList()));
     });
+  }
+
+  void _onFail() {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text("O campo não pode estar em branco e o usuário precisa estar logado!"),
+      backgroundColor: Colors.redAccent,
+      duration: Duration(seconds: 3),
+    ));
+
   }
 }
