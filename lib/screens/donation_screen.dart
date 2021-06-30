@@ -67,7 +67,7 @@ class _DonationScreenState extends State<DonationScreen> {
                             if (UserModel.of(context).isLoggedIn() & _formKey.currentState.validate()) {
                               DonationData donationData = DonationData();
 
-                              /*donationData.cid = model.userData["cpf"];*/
+
                               donationData.data = _dateController.text;
 
                               DonationModel.of(context).addDonation(donationData);
@@ -94,11 +94,11 @@ class _DonationScreenState extends State<DonationScreen> {
       backgroundColor: Theme.of(context).primaryColor,
       duration: Duration(seconds: 3),
     ));
-    Future.delayed(Duration(seconds: 2)).then((_) {
+    /*Future.delayed(Duration(seconds: 2)).then((_) {
       //Depois de registrada a doação aguardamos deois segundos e levamos até a tela de doações
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => DonationList()));
-    });
+    });*/
   }
 
   void _onFail() {
