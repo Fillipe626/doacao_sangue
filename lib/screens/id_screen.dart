@@ -26,13 +26,14 @@ class _IdScreenState extends State<IdScreen> {
   }
 
   Future uploadImageToFirebase(BuildContext context) async {
+    String downloadUrl;
     String fileName = basename(_imageFile.path);
     StorageReference firebaseStorageRef =
         FirebaseStorage.instance.ref().child('uploads/$fileName');
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(_imageFile);
     StorageTaskSnapshot taskSnapshot = await uploadTask.onComplete;
     taskSnapshot.ref.getDownloadURL().then(
-          (value) => print("Done: $value"),
+          (value) => downloadUrl,
         );
   }
 
