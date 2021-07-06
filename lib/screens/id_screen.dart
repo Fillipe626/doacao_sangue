@@ -61,7 +61,7 @@ class _IdScreenState extends State<IdScreen> {
                             children: <Widget>[
                               Container(
                                 width: 80.0,
-                                height: 80.0,
+                                height: 120.0,
                                child: ClipRRect(
                                  borderRadius: BorderRadius.circular(45.0),
                                  child: _imageFile != null ? Image.file(_imageFile) : Image.asset("images/person.png"),
@@ -141,7 +141,7 @@ class _IdScreenState extends State<IdScreen> {
                       "${model.userData["gender"]}",
                       style: TextStyle(fontSize: 18.0),
                     ),
-                    SizedBox(height: 50.0),
+                    SizedBox(height: 10.0),
                     Text(
                       "Para doar sangue é necessário apresentar documento original com foto!",
                       style: TextStyle(fontSize: 14.0, color: Colors.redAccent),
